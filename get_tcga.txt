@@ -1,0 +1,2 @@
+project experimental.strategy data.category data.type workflow.type 
+TCGA-STAD RNA-Seq Transcriptome Profiling Gene expression Quantification  HTSeq - FPKM  

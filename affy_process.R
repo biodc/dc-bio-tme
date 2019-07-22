@@ -65,5 +65,7 @@ process_geo_affy <- function (gse) {
       write_tsv(final_exprSet_noNA_nodup,paste(gse, "_matrix_expr_symbol_noNAnoDup.txt",sep = ""))
     }
   }
+  dirNow <- getwd()
   setwd(basedir)
+  write_lines(paste(dirNow,"/",gse, "_matrix_expr_symbol_noNAnoDup.txt",sep = ""), "../result.txt", append = TRUE)
 }

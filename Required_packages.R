@@ -68,3 +68,28 @@ if(!require(impute)) {
   BiocManager::install("impute")
   require("impute")
 }
+if(!require(e1071)){
+  print("e1071 not installed, installing")
+  install.packages("e1071")
+  require(e1071)
+}
+if(!require(parallel)){
+  print("parallel not installed, installing")
+  install.packages("parallel")
+  require(parallel)
+}
+if(!require(preprocessCore)){
+  print("preprocessCore not installed, installing")
+  install.packages("preprocessCore")
+  require(preprocessCore)
+}
+if(!require(preprocessCore)) {
+  print("preprocessCore not installed, installing...")
+  BiocManager::install("preprocessCore")
+  require("preprocessCore")
+}
+if(!require(TCGAbiolinks)) {
+  print("TCGAbiolinks not installed, installing...")
+  BiocManager::install("TCGAbiolinks")
+  require("TCGAbiolinks")
+}
