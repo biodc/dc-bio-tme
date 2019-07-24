@@ -1,7 +1,7 @@
-target_geo <- TRUE
+target_geo <- FALSE
 target_geo_file <- read.table("./get_target.txt", header = TRUE)
 target_tcga <- TRUE
-do_ciber <- TRUE
+do_ciber <- FALSE
 tcga_project <- "TCGA-STAD"
 tcga_experimental_strategy <- "RNA-Seq"
 tcga_data_category <- "Transcriptome Profiling"
@@ -10,7 +10,7 @@ tcga_workflow_type <- "HTSeq - FPKM"
 if(!dir.exists("workspace")){
   dir.create("./workspace")
 }
-if(file.exists("./result.txt")){
+if(!file.exists("./result.txt")){
   file.remove("./result.txt")
 }
 source("./Required_packages.R")
