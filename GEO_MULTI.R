@@ -55,11 +55,11 @@ if(do_ciber){
     dir.create("ciber")
   }
   setwd("ciber")
-  sapply(fileList, function(r){
+  parallel::mclapply(fileList, function(r){
     source("../process_ciber.R")
     do_cibersort(r)
     return("Success!")
-  })
+  },mc.cores = detectCores())
   setwd("..")
 }
 
