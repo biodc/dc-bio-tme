@@ -40,22 +40,22 @@ if(!require(org.Hs.eg.db)){
 }
 if(!require(readr)){
   print("readr not installed, installing")
-  install.packages("readr")
+  BiocManager::install("readr")
   require(readr)
 }
 if(!require(dplyr)){
   print("dplyr not installed, installing")
-  install.packages("dplyr")
+  BiocManager::install("dplyr")
   require(dplyr)
 }
 if(!require(magrittr)){
   print("magrittr not installed, installing")
-  install.packages(magrittr)
+  BiocManager::install(magrittr)
   require(magrittr)
 }
 if(!require(stringr)){
   print("stringr not installed, installing")
-  install.packages("stringr")
+  BiocManager::install("stringr")
   require(stringr)
 }
 if(!require(lumiHumanIDMapping)){
@@ -70,23 +70,18 @@ if(!require(impute)) {
 }
 if(!require(e1071)){
   print("e1071 not installed, installing")
-  install.packages("e1071")
+  BiocManager::install("e1071")
   require(e1071)
 }
 if(!require(parallel)){
   print("parallel not installed, installing")
-  install.packages("parallel")
+  BiocManager::install("parallel")
   require(parallel)
 }
 if(!require(preprocessCore)){
   print("preprocessCore not installed, installing")
-  install.packages("preprocessCore")
-  require(preprocessCore)
-}
-if(!require(preprocessCore)) {
-  print("preprocessCore not installed, installing...")
   BiocManager::install("preprocessCore")
-  require("preprocessCore")
+  require(preprocessCore)
 }
 if(!require(TCGAbiolinks)) {
   print("TCGAbiolinks not installed, installing...")
