@@ -2,7 +2,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE)){
   print("Bioconductor not installed, installing...")
   install.packages("BiocManager")
 }
-library(parallel)
+require(parallel)
 if(!require(GEOquery)){
   print("GEOquery not installed, installing...")
   BiocManager::install("GEOquery")
@@ -43,11 +43,6 @@ if(!require(readr)){
   BiocManager::install("readr")
   require(readr)
 }
-if(!require(dplyr)){
-  print("dplyr not installed, installing")
-  BiocManager::install("dplyr")
-  require(dplyr)
-}
 if(!require(magrittr)){
   print("magrittr not installed, installing")
   BiocManager::install(magrittr)
@@ -58,11 +53,6 @@ if(!require(stringr)){
   BiocManager::install("stringr")
   require(stringr)
 }
-if(!require(lumiHumanIDMapping)){
-  print("lumiHumanIDMapping not installed, installing")
-  BiocManager::install("lumiHumanIDMapping")
-  require(lumiHumanIDMapping)
-}
 if(!require(impute)) {
   print("Impute not installed, installing...")
   BiocManager::install("impute")
@@ -70,17 +60,17 @@ if(!require(impute)) {
 }
 if(!require(e1071)){
   print("e1071 not installed, installing")
-  BiocManager::install("e1071")
+  install.packages("e1071")
   require(e1071)
 }
-if(!require(parallel)){
-  print("parallel not installed, installing")
-  BiocManager::install("parallel")
-  require(parallel)
+if(!require(SummarizedExperiment)) {
+  print("SummarizedExperiment not installed, installing...")
+  BiocManager::install("SummarizedExperiment")
+  require("SummarizedExperiment")
 }
 if(!require(preprocessCore)){
   print("preprocessCore not installed, installing")
-  BiocManager::install("preprocessCore")
+  install.packages("preprocessCore")
   require(preprocessCore)
 }
 if(!require(TCGAbiolinks)) {
