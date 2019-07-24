@@ -1,7 +1,6 @@
-/Users/oliver/R/TME/workspace/exprSet_ann/GSE57303/GSE57303_matrix_expr_symbol_noNAnoDup.txt
 /Users/oliver/R/TME/workspace/exprSet_ann/GSE26253/GSE26253_matrix_expr_symbol_noNAnoDup.txt
+/Users/oliver/R/TME/workspace/exprSet_ann/GSE57303/GSE57303_matrix_expr_symbol_noNAnoDup.txt
 /Users/oliver/R/TME/workspace/exprSet_ann/GSE29272/GSE29272_matrix_expr_symbol_noNAnoDup.txt
 /Users/oliver/R/TME/workspace/exprSet_ann/GSE15459/GSE15459_matrix_expr_symbol_noNAnoDup.txt
 /Users/oliver/R/TME/workspace/exprSet_ann/GSE62254/GSE62254_matrix_expr_symbol_noNAnoDup.txt
 /Users/oliver/R/TME/workspace/exprSet_ann/GSE84437/GSE84437_matrix_expr_symbol_noNAnoDup.txt
-/Users/oliver/R/TME/workspace/GDCdata/exprSet_matrix.txt

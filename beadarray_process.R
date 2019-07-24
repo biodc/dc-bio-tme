@@ -25,6 +25,8 @@ process_geo_ill <- function(gse) {
     illData.norm <- neqc(illData)
     exprSet <- as.data.frame(illData.norm)
     row.names(exprSet) <- (exprSet[1][[1]])
+    # mask array and probe
+    exprSet <- exprSet[,-c(colnames(exprSet) %>% str_detect("Array") %>% which,colnames(exprSet) %>% str_detect("Probe") %>% which)] 
   }
   probeSet <- rownames(exprSet)
   exprSet$ID <- probeSet
