@@ -13,7 +13,7 @@ if(!dir.exists("workspace")){
 if(file.exists("./result.txt")){
   file.remove("./result.txt")
 }
-source("../Required_packages.R")
+source("./Required_packages.R")
 if(target_geo) {
   setwd("./workspace")
   cores <- detectCores()/2
