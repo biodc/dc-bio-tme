@@ -77,3 +77,5 @@ vignettes/*.pdf
 # End of https://www.gitignore.io/api/r,macos
 workspace
 ciber
+.Rproj.user
+output
