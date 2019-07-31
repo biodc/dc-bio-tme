@@ -1,4 +1,4 @@
-all_green <- FALSE
+all_green <- TRUE
 
 target_geo <- FALSE
 target_tcga <- FALSE
@@ -15,7 +15,13 @@ do_merge_map_ciber <- FALSE
 
 do_ciber_map_cluster <- TRUE
 
-if(all_green) {
+tcga_project <- "TCGA-STAD"
+tcga_experimental_strategy <- "RNA-Seq"
+tcga_data_category <- "Transcriptome Profiling"
+tcga_data_type <- "Gene Expression Quantification"
+tcga_workflow_type <- "HTSeq - FPKM"
+
+if (all_green) {
   target_geo <- TRUE
   target_tcga <- TRUE
   merge_gene_true <- TRUE
@@ -28,54 +34,55 @@ if(all_green) {
   do_ciber_map_cluster <- TRUE
 }
 ciber_matrix <- "./output/all_gene_matrix_after_batch_correction.txt"
+
 ciber_result <- "./output/cibersort_all_result.txt"
-map_result <- "./output/mcp_all_result.txt"
+mcp_result <- "./output/mcp_all_result.txt"
 
 source("./func/init_workspace.R")
 init_workspace()
 
-if(target_geo) {
+if (target_geo) {
   source("./func/process_geo.R")
   process_geo()
 }
 
-if(target_tcga) {
+if (target_tcga) {
   source("./func/process_tcga.R")
   process_tcga()
 }
 
-if(merge_gene_true) {
+if (merge_gene_true) {
   source("./func/merge_gene_matrix.R")
   merged_gene_matrix <- mergeGeneMatrix("./result.txt")
 }
 
-if(batch_correction) {
+if (batch_correction) {
   source("./func/batch_correction.R")
   mabc <- process_batch_correction()
 }
 
-if(do_ciber){
+if (do_ciber) {
   source("./func/process_ciber.R")
-  if(exists("mabc")) {
+  if (exists("mabc")) {
     process_ciber(mabc)
   } else {
     process_ciber(ciber_matrix)
   }
 }
 
-if(do_mapCounter) {
+if (do_mapCounter) {
   source("./func/process_mcp.R")
-  if(exists("mabc")) {
+  if (exists("mabc")) {
     process_mcp(mabc)
   } else {
     process_mcp(ciber_matrix)
   }
 }
 
-if(do_ciber_map_cluster) {
+if (do_ciber_map_cluster) {
   source("./func/process_merge_map_ciber.R")
-  merge_map_ciber(map_result, ciber_result)
-} 
+  merge_map_ciber(mcp_result, ciber_result)
+}
 
 
 

@@ -1,14 +1,10 @@
 merge_map_ciber <- function(mcpPath, ciberPath) {
   ciberData <- read_tsv(ciberPath)
   mcpData <- read_tsv(mcpPath)
-  trim_ciberData <- (column_to_rownames(ciberData, "immCell"))
-  trim_ciberData <- trim_ciberData[!rownames(trim_ciberData) %in% c("P-value", "Correlation", "RMSE"),]
-  t_trim_ciberData <- rownames_to_column(as.data.frame(t(trim_ciberData)), "Sample")
-  trim_mcpData <- (column_to_rownames(mcpData, "Type"))
-  trim_mcpData <- trim_mcpData[rownames(trim_mcpData)=="Fibroblasts",]
-  t_trim_mcpData <- rownames_to_column(as.data.frame(t(trim_mcpData)), "Sample")
-  final_matrix <- t(column_to_rownames(full_join(t_trim_ciberData, t_trim_mcpData, by="Sample"), "Sample"))
-  save(final_matrix, file="map_ciber_final_matrix.rda")
+  ciberData %<>% column_to_rownames("immCell") %>% t %>% as.data.frame %>% rownames_to_column("Sample") %>% filter(`P-value`<0.05) %>% column_to_rownames("Sample") %>% select_at(1:22) %>% rownames_to_column("Sample")
+  mcpData %<>% column_to_rownames("Type") %>% t %>% as.data.frame %>% select_at(9) %>% rownames_to_column("Sample")
+  final_matrix <- inner_join(ciberData, mcpData, by="Sample") %>% column_to_rownames("Sample") %>% t
+  save(final_matrix, file="./output/map_ciber_final_matrix.rda")
   final_matrix_to_save <- rownames_to_column(as.data.frame(final_matrix), "Type")
   write_tsv(final_matrix_to_save, "./output/map_ciber_final_matrix.txt")
   final_matrix_norm <- preprocessCore::normalize.quantiles(final_matrix)
@@ -28,4 +24,5 @@ merge_map_ciber <- function(mcpPath, ciberPath) {
                                              writeTable = TRUE,
                                              plot="png",
                                              )
+  setwd("..")
 }

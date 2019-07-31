@@ -1,9 +1,16 @@
 process_tcga <- function() {
-  tcga_project <- "TCGA-STAD"
-  tcga_experimental_strategy <- "RNA-Seq"
-  tcga_data_category <- "Transcriptome Profiling"
-  tcga_data_type <- "Gene Expression Quantification"
-  tcga_workflow_type <- "HTSeq - FPKM"
+  #tcga_project <- "TCGA-STAD"
+  #tcga_experimental_strategy <- "RNA-Seq"
+  #tcga_data_category <- "Transcriptome Profiling"
+  #tcga_data_type <- "Gene Expression Quantification"
+  #tcga_workflow_type <- "HTSeq - FPKM"
+  
+  #tcga_experimental_strategy <- "RNA-Seq"
+  #tcga_data_category <- "Transcriptome Profiling"
+  #tcga_data_type <- "Gene Expression Quantification"
+  #tcga_workflow_type <- "HTSeq - FPKM"
+  #tcga_project <- c("TCGA-LUAD", "TCGA-LUSC")
+  
   
   setwd("./workspace")
   query <- GDCquery(project = tcga_project, 
